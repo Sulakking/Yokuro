@@ -18,7 +18,7 @@ Compte 5 minutes. Il faut un Mac sous macOS 13 Ventura ou plus récent.
 2. Dézippe le dossier Yokuro, et sors-le de Téléchargements et de OneDrive : le Bureau convient très bien.
 3. Dans le Terminal, tape `bash ` avec l'espace, glisse le fichier `build.sh` dans la fenêtre, puis appuie sur Entrée.
 
-L'app se construit en une à deux minutes, s'installe dans Applications et se lance. Son picto apparaît dans la barre de menus.
+L'app se construit en une à deux minutes, s'installe dans Applications et se lance. Sans droits d'administrateur sur le Mac, elle s'installe dans ton dossier Applications personnel, ce qui revient au même. Son picto apparaît dans la barre de menus.
 
 Au premier lancement, macOS demande l'accès au dossier Téléchargements : accepte, sinon Yokuro ne peut rien ranger. Yokuro se relance ensuite tout seul à chaque démarrage du Mac.
 
@@ -28,11 +28,11 @@ Une fois l'app installée, le dossier dézippé ne sert plus : tu peux le suppri
 
 ### Quand un fichier arrive
 
-La pop-in « Quelle catégorie projet ? » s'ouvre sous le picto. Elle ne prend pas le clavier : tu peux continuer à taper dans une autre app.
+La pop-in « Quelle catégorie projet ? » s'ouvre sous le picto. Elle ne prend pas le clavier : tu peux continuer à taper dans une autre app. Le chevron en haut à gauche revient aux raccourcis sans rien classer.
 
-- Clique une catégorie dans la liste : le fichier reçoit son préfixe, par exemple « LGF - maquette.html ».
-- Pas encore de catégorie ? Tape son nom dans « Nouveau Projet » et clique « Ajouter ». Ce champ filtre aussi la liste, pratique quand tu as beaucoup de projets.
-- Le nom du fichier est modifiable directement dans la pop-in. Entrée le renomme tout de suite.
+- Clique une catégorie dans la liste : le fichier reçoit son préfixe, par exemple « LGF - maquette.html ». « Aucun projet », en tête de liste, le laisse sans préfixe.
+- Pas encore de catégorie ? Tape son nom dans « Nouveau Projet » et clique « Ajouter ».
+- Le nom du fichier et son extension sont modifiables directement dans la pop-in, dans deux champs. Entrée renomme tout de suite. Une image renommée ainsi garde ce nom au rangement.
 - Le « - » à droite d'une catégorie la supprime de la liste. Les fichiers déjà préfixés ne changent pas.
 - Fermer la pop-in sans choisir laisse le fichier tel quel.
 
@@ -46,7 +46,8 @@ La pop-in annonce le rangement du jour, par exemple « 12 à supprimer, 30 à d�
 
 - « Voir et valider » ouvre la liste complète des changements. Chaque ligne se décoche, chaque nom se modifie, et rien ne bouge avant que tu cliques « Valider ».
 - Pas le moment ? Reporte d'1 h, 2 h, 3 h ou à demain.
-- Si tu fermes la pop-in sans répondre, elle revient une heure plus tard.
+- La demande reste affichée tant que tu n'as pas répondu. Si tu la refermes avec le picto, elle revient une heure plus tard.
+- Chaque report est confirmé par une notification de macOS.
 
 Pas besoin d'attendre 17 h : « Ranger maintenant » lance le rangement à tout moment.
 
@@ -56,26 +57,29 @@ Un clic sur le picto ouvre la pop-in de raccourcis :
 
 - « Téléchargements » ouvre le dossier dans le Finder.
 - « Trier autre dossier » applique le même rangement, une seule fois, à n'importe quel dossier. Tu choisis où créer les dossiers de rangement et quel préfixe projet appliquer.
-- « Renommer les derniers fichiers » donne une catégorie, en un seul clic, à tous les fichiers arrivés ces 30 dernières minutes sans préfixe.
+- « Classer les derniers fichiers » donne une catégorie, en un seul clic, à tous les fichiers qui attendent et à ceux arrivés ces 30 dernières minutes sans préfixe.
 
 ## Ce que Yokuro range et supprime
 
 Yokuro crée ses dossiers de rangement dans Téléchargements, et leur donne une couleur pour que tu les repères d'un coup d'œil.
 
+Dans chaque dossier, les fichiers d'un projet vont dans un sous-dossier à son nom : « SNCF - brief.pdf » est rangé dans `Documents de travail/SNCF`. Un fichier que tu n'as pas renommé y va aussi si son nom contient le nom du projet. Cette option se désactive dans les réglages.
+
 | Fichiers | Ce que fait Yokuro |
 |---|---|
 | Images (png, jpg, gif, webp, heic…) | Rangées dans « Images ». Un nom sans intérêt (IMG_1234, suite de chiffres) devient « Image 1126 - 01 » : mois, jour, numéro. |
 | Captures d'écran | Rangées dans « Captures d’écran ». |
-| pdf, pptx, docx, xlsx, txt, rtf | Rangés dans « Documents de travail ». |
+| Documents : pdf, Word, Excel, PowerPoint, Pages, Keynote, texte, csv, e-mails, agenda, contacts | Rangés dans « Documents de travail ». |
 | Vidéos mp4, mov, webm | Rangées dans « Vidéos en cours ». |
-| Audios mp3, wav… | Rangés dans « Audios en cours ». |
+| Audios mp3, wav… | Rangés dans « Audios en cours ». En option, ceux de moins de 15 secondes sont supprimés. |
 | svg | Rangés dans « SVG Images ». |
 | psd | Rangés dans « PSD Photoshop ». |
-| aep | Rangés dans « AEP After Effect ». |
+| ai | Rangés dans « IA Illustrator ». |
+| After Effects : aep, aepx, aet, ffx, mogrt, aex, aec | Rangés dans « AEP After Effect ». |
 | json | La dernière version est rangée dans « Fichiers JSON », un sous-dossier par projet. Les versions antérieures sont supprimées. |
-| html | Seule la dernière version reste (v2, v3…). Les précédentes sont supprimées. |
+| html | La dernière version (v2, v3, v2.5.1…) est rangée dans « HTML de travail ». Les précédentes sont supprimées. |
 | zip | Supprimé si son contenu est déjà dézippé à côté, rangé dans « Fichiers ZIP » sinon. |
-| Polices (ttf, otf) | Le dossier ou le zip est supprimé s'il ne contient que des polices et leurs notices. |
+| Polices (otf, ttf, woff, woff2, ttc, otc, eot, dfont, pfb, pfm, fon, bdf, fnt) | Le dossier ou le zip est supprimé s'il ne contient que des polices et leurs notices. |
 | Doublons « (1) », « (2) » | Supprimés s'ils sont strictement identiques à l'original. |
 | Fichiers dont le nom contient « copie » | Supprimés. |
 | md, eps, dmg, exe, pkg, fichiers sans extension | Supprimés. |
@@ -94,9 +98,10 @@ La roue crantée de la pop-in ouvre les réglages :
 
 - L'heure de la routine quotidienne, et le nombre de jours de conservation des fichiers temporaires.
 - Le lancement de Yokuro au démarrage du Mac.
-- L'ouverture automatique de la pop-in à l'arrivée d'un fichier.
+- « Proposer le renommage après un téléchargement » : l'ouverture automatique de la pop-in à l'arrivée d'un fichier.
 - La durée de « Renommer avec la même catégorie », ou le renommage jusqu'à désactivation.
 - Les projets, avec des mots-clés facultatifs. Si le nom d'un fichier contient un mot-clé, il reçoit son préfixe sans même que la pop-in s'ouvre. Exemple : avec le mot-clé « bnp » pour le projet « BNP PF », « maquette-bnp.pdf » devient directement « BNP PF - maquette-bnp.pdf ».
+- Le rangement par projet, dans des sous-dossiers.
 - La couleur des dossiers de Yokuro, parmi les couleurs du Finder ou une couleur libre.
 - Chaque règle de rangement, activable ou non. Les captures d'écran, les audios et les svg peuvent être supprimés plutôt que rangés.
 
@@ -126,7 +131,7 @@ S'il parle de « developer path » ou d'outils introuvables, refais l'étape 1. 
 
 Yokuro est développé par Valentin Stobierski. Une idée, un bug, une règle de rangement qui manque ? Écris-lui.
 
-Version 0.17
+Version 0.23
 
 ---
 
@@ -140,4 +145,4 @@ L'app est écrite en Swift, sans dépendance. Un double-clic sur `Package.swift`
 - `Popover.swift` : la pop-in de la barre de menus.
 - `Windows.swift` : la liste des changements et les réglages.
 - `AppDelegate.swift` : le chef d'orchestre.
-- `Resources/` : l'icône de l'app (`AppIcon.icns`, à partir de `AppIcon.svg`) et le picto de la barre de menus (`YokuroIcon.pdf`, à partir de `YokuroIcon.svg`).
+- `Resources/` : l'icône de l'app (`AppIcon.icns`, à partir de `AppIcon.svg`), le picto de la barre de menus (`YokuroIcon.pdf`, à partir de `YokuroIcon.svg`) et les pictos de l'interface (`Pictos/`, un PDF par SVG).
